@@ -1,2 +1,2 @@
 # data-expts
-This repo will include info abt data experiments and tests and codes
+This repo includes information about my experiements with data, tests and codes.
