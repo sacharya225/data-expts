@@ -1,0 +1,49 @@
+uvicorn main:app --reload
+
+docker build -t iamsasha/wineqlty-frontend .
+
+docker build -t iamsasha/wineqlty-backend .
+docker login
+
+docker push iamsasha/wineqlty-frontend
+
+*********************************************************
+gcloud container clusters create-auto ml-expts --location=us-central1
+
+gcloud container clusters get-credentials ml-expts --location us-central1
+
+****************************************************************
+upload frontend and backend.yaml to github
+git clone https://...data-expts
+cd data-expts/MLOps
+kubectl apply -f frontend.yaml backend.yaml
+
+kubectl get pods -o wide
+kubectl get svc
+
+access backend webpage with - http://<<EXTERNAL_IP>>:8000
+access frontend/webpage with - http://<<EXTERNAL_IP>>:8501
+
+We have to update the url in webapp.py to kubernetes backend service url. Right now it points to localhost
+kubectl exec wineqlty-frontend-6979c6846b-m8t92 -it  sh
+sudo
+apt-get update
+apt-get install vim
+vim webapp.py
+update url to http://winequality-backend.default.svc.cluster.local:8000/wine
+(http://<svc-name>.<namespace>.svc.cluster.local)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
