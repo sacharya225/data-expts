@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wineqlty-frontend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wineqlty-frontend
+  template:
+    metadata:
+      labels:
+        app: wineqlty-frontend
+    spec:
+      containers:
+      - name: wineqlty-frontend
+        image: iamsasha/wineqlty-frontend:latest
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wineqlty-frontend
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    app: wineqlty-frontend
+  ports:
+  - port: 8501
+    targetPort: 8501
