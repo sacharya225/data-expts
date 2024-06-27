@@ -4,21 +4,20 @@ python3 -m uvicorn main:app --reload
 2. To run streamlit
 python3 streamlit run webapp.py
 
-3. To build docker images
+3. To build docker images and push it to Docker Hub 
 A. create Dockerfile in local
-B. identify namespace (iamsasha in mycase)
+B. identify namespace in Dockerhub (iamsasha in mycase)
 C. docker build -t iamsasha/wineqlty-frontend .
 D. docker build -t iamsasha/wineqlty-backend .
 E. docker login
 F. docker push iamsasha/wineqlty-frontend
 G. docker push iamsasha/wineqlty-backend
 *********************************************************
+4. Create Kubernetes clusters in GCP using cloud shell
 gcloud container clusters create-auto ml-expts --location=us-central1
-
 gcloud container clusters get-credentials ml-expts --location us-central1
-
 ****************************************************************
-upload frontend and backend.yaml to github
+5. upload frontend and backend.yaml to github
 git clone https://...data-expts
 cd data-expts/MLOps
 kubectl apply -f frontend.yaml backend.yaml
