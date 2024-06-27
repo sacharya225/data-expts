@@ -1,12 +1,17 @@
-uvicorn main:app --reload
+1. To run fastapi 
+python3 -m uvicorn main:app --reload
 
-docker build -t iamsasha/wineqlty-frontend .
+2. To run streamlit
+python3 streamlit run webapp.py
 
-docker build -t iamsasha/wineqlty-backend .
-docker login
-
-docker push iamsasha/wineqlty-frontend
-
+3. To build docker images
+A. create Dockerfile in local
+B. identify namespace (iamsasha in mycase)
+C. docker build -t iamsasha/wineqlty-frontend .
+D. docker build -t iamsasha/wineqlty-backend .
+E. docker login
+F. docker push iamsasha/wineqlty-frontend
+G. docker push iamsasha/wineqlty-backend
 *********************************************************
 gcloud container clusters create-auto ml-expts --location=us-central1
 
