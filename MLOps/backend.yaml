@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: winequality-backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: winequality-backend
+  template:
+    metadata:
+      labels:
+        app: winequality-backend
+    spec:
+      containers:
+      - name: winequality-backend
+        image: iamsasha/wineqlty-backend:latest
+        imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: winequality-backend
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    app: winequality-backend
+  ports:
+  - port: 8000
+    targetPort: 8000
