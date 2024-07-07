@@ -1,0 +1,11 @@
+Basic Python web app to calculate various math operations. 
+It consists of frontend UI rendered by Streamlit and a backend running on FastAPI.
+All FastAPI related code /server side code is in mathapiserver 
+All Front end is in mathui.
+Dockerfile is created in each of the above folder.
+
+docker compose defines services and networks,
+
+#Command  to create docker images and containers for mathui and mathapiserver
+docker-compose up --build
+

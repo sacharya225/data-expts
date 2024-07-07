@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  mathui:
+    build: mathui
+    ports:
+      - 8501:8501
+    depends_on:
+      - mathapiserver
+    volumes:
+      - ./mathui:/app
+    restart: always
+    networks:
+      - app
+    container_name: mathui
+    
+  mathapiserver:
+    build: mathapiserver
+    ports:
+      - 8000:8000
+    volumes:
+      - ./mathapiserver:/app
+    restart: always
+    networks:
+      - app
+    container_name: mathapiserver
+
+networks:
+  app:
+    driver: bridge
