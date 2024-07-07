@@ -1,4 +1,4 @@
-Basic Python web app to calculate various math operations. 
+Simple python web app for various math operations. 
 It consists of frontend UI rendered by Streamlit and a backend running on FastAPI.
 All FastAPI related code /server side code is in mathapiserver 
 All Front end is in mathui.
